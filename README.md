@@ -158,7 +158,7 @@ Navigate to http://localhost to check my-app application
 set GITLABKEY=
 ```
 ```
-helm repo add vlad-private https://gitlab.com/api/v4/projects/40473622/packages/helm/stable --username helmchart --password %GILABKEY%
+helm repo add vlad-private https://gitlab.com/api/v4/projects/40473622/packages/helm/stable --username helmchart --password %GITLABKEY%
 ```
 4.11 Package my-chart helm chart 
 ```
@@ -169,6 +169,13 @@ helm package my-chart --version 1.0.0
 helm cm-push my-chart-1.0.0.tgz vlad-private
 ```
 **Note**: helm cm-push plugin needs to be installed: https://github.com/chartmuseum/helm-push
+
+4.13 Use my-chart from the private helm repository
+```
+helm repo update
+```
+helm upgrade my-app vlad-it-labs/my-chart
+```
 
 ## 5. DEMO 3 ( create multiple services using one helm chart, rollback to a previous helm revision )
 
@@ -183,16 +190,19 @@ helm install -f ServiceValues/service1-values.yaml service1 my-chart
 
 5.3 Install **service 2** using my-chart and values for the service2
 ```
-helm install -f ServiceValues/service1-values.yaml service1 my-chart
+helm install -f ServiceValues/service2-values.yaml service2 my-chart
 
 ```
 
 5.4 Install **service 3** using my-chart and values for the service3
 ```
-helm install -f ServiceValues/service1-values.yaml service1 my-chart
+helm install -f ServiceValues/service3-values.yaml service3 my-chart
 
 ```
 5.5 Check Kubernetes resources for all services 
+```
+helm list
+```
 ```
 kubectl get all
 ```
@@ -206,7 +216,7 @@ Navigate to http://localhost:8083 to check service3
 
 5.7 Upgrade chart for service3 using different values from command line 
 ```
-helm upgrade -f ServiceValues/service3-values.yaml service3 my-chart –-set servicePort=9090
+helm upgrade -f ServiceValues/service3-values.yaml service3 my-chart --set servicePort=9090
 
 ```
 5.8 Check service3 
