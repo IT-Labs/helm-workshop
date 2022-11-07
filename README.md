@@ -64,7 +64,7 @@ helm version
 
 
 
-## 3. DEMO 1 ( Install wordpess using public helmchart )
+## 3. DEMO 1 ( Install wordpess using public helm chart )
 
 3.1 Check what is currently installed on the cluster
 
@@ -84,7 +84,7 @@ Select Helm chart  **wordpress ORG:Bitnami REPO:bitnami**
 Check install instructions on **INSTALL**
 
 
-3.3.1 Add bitnami helmchart repository
+3.3.1 Add bitnami helm chart repository
 ```
 helm repo add bitnami https://charts.bitnami.com/bitnami
 ```
@@ -96,9 +96,9 @@ helm repo list
 ```
 helm repo update
 ```
-3.3.4 Install wordpress using helmchart
+3.3.4 Install wordpress using helm chart
 ```
-helm install my-wordpress bitnami/wordpress --version 15.2.11 --debug
+helm install my-wordpress bitnami/wordpress --version 15.2.11
 ```
 
 3.4 Check wordpress Kubernetes resources 
@@ -118,13 +118,13 @@ helm list
 helm uninstall my-wordpress
 ```
 
-## 4. DEMO 2 ( create your own helmchart and push to private repo )
+## 4. DEMO 2 ( create your own helm chart and push to private repo )
 
-4.1 Open CMD and change to directory where where you want to create Helm CHart 
+4.1 Open CMD and change to directory where where you want to create helm chart 
 ```
 cd D:\HelmChartDemo
 ```
-4.2 Create Helm Chart and check folder structure of it
+4.2 Create helm chart and check folder structure of it
 ```
 helm create my-chart
 ```
@@ -164,13 +164,13 @@ helm repo add vlad-private https://gitlab.com/api/v4/projects/40473622/packages/
 ```
 helm package my-chart --version 1.0.0
 ```
-4.12
+4.12 Push my-chart to the private repository 
 ```
 helm cm-push my-chart-1.0.0.tgz vlad-private
 ```
 **Note**: helm cm-push plugin needs to be installed: https://github.com/chartmuseum/helm-push
 
-## 5. DEMO 3
+## 5. DEMO 3 ( create multiple services using one helm chart, rollback to a previous helm revision )
 
 5.1 Create folder ```D:\HelmChartDemo\ServiceValues``` and paste ```service1-values.yaml``` ```service1-values.yaml``` ```service1-values.yaml``` files from github and view diferences in values in those files
 
