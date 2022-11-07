@@ -139,7 +139,7 @@ tree /F
 
 4.6 View kubernetes manifests that will be installed with helm
 ```
-helm template
+helm template my-chart
 ```
 4.7 Install my-app with helm
 ```
