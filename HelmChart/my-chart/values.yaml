@@ -1,0 +1,12 @@
+appName: my-app
+appReplicas: 1
+appImage: ghcr.io/vlado-it-labs/my-app
+containerPort: 80
+containerName: my-app-container
+serviceType: LoadBalancer
+portName: my-app-port
+servicePort: 80
+deploymentName: my-app-deployment
+serviceName: my-app-service
+
+

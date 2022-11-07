@@ -1,0 +1,12 @@
+appName: web-server1
+appReplicas: 1
+appImage: ghcr.io/vlado-it-labs/service1
+containerPort: 80
+containerName: web-server1-container
+serviceType: LoadBalancer
+portName: web-server1-port
+servicePort: 8081
+deploymentName: web-server1-deployment
+serviceName: web-server1-service
+
+
