@@ -175,7 +175,7 @@ helm cm-push my-chart-1.0.0.tgz vlad-private
 helm repo update
 ```
 ```
-helm upgrade my-app vlad-it-labs/my-chart
+helm upgrade my-app vlad-private/my-chart
 ```
 
 ## 5. DEMO 3 ( create multiple microservices using one helm chart, rollback to a previous helm revision )
