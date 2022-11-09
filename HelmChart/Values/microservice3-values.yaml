@@ -1,6 +1,6 @@
 appName: web-server3
 appReplicas: 1
-appImage: ghcr.io/vlado-it-labs/service3
+appImage: ghcr.io/vlado-it-labs/microservice3
 containerPort: 80
 containerName: web-server3-container
 serviceType: LoadBalancer
