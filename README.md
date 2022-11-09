@@ -221,21 +221,20 @@ helm upgrade -f Values/microservice3-values.yaml microservice3 my-chart --set se
 
 ```
 5.8 Check microservice3 
-```
+
 Navigate to http://localhost:8083 to check microservice3
-```
-```
+
 Navigate to http://localhost:9090 to check microservice3
-```
+
 
 5.9 Rollback microservice3 
 ```
 helm rollback microservice3 1
 ```
 5.10 Check microservice3 
-```
+
 Navigate to http://localhost:8083 to check microservice3
-```
-```
+
+
 Navigate to http://localhost:9090 to check microservice3
-```
+
