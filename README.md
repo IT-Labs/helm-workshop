@@ -174,67 +174,68 @@ helm cm-push my-chart-1.0.0.tgz vlad-private
 ```
 helm repo update
 ```
+```
 helm upgrade my-app vlad-it-labs/my-chart
 ```
 
-## 5. DEMO 3 ( create multiple services using one helm chart, rollback to a previous helm revision )
+## 5. DEMO 3 ( create multiple microservices using one helm chart, rollback to a previous helm revision )
 
-5.1 Create folder ```D:\HelmChartDemo\ServiceValues``` and paste ```service1-values.yaml``` ```service1-values.yaml``` ```service1-values.yaml``` files from github and view diferences in values in those files
+5.1 Create folder ```D:\HelmChartDemo\Values``` and paste ```microservice1-values.yaml``` ```microservice2-values.yaml``` ```microservice3-values.yaml``` files from github and view diferences in values in those files
 
-5.2 Install **service 1** using my-chart and values for the service1
+5.2 Install **microservice 1** using my-chart and values for the microservice1
 ```
-helm install -f ServiceValues/service1-values.yaml service1 my-chart
-
-```
-
-
-5.3 Install **service 2** using my-chart and values for the service2
-```
-helm install -f ServiceValues/service2-values.yaml service2 my-chart
+helm install -f Values/microservice1-values.yaml microservice1 my-chart
 
 ```
 
-5.4 Install **service 3** using my-chart and values for the service3
+
+5.3 Install **microservice 2** using my-chart and values for the microservice2
 ```
-helm install -f ServiceValues/service3-values.yaml service3 my-chart
+helm install -f Values/microservice2-values.yaml microservice2 my-chart
 
 ```
-5.5 Check Kubernetes resources for all services 
+
+5.4 Install **microservice 3** using my-chart and values for the microservice3
+```
+helm install -f Values/microservice3-values.yaml microservice3 my-chart
+
+```
+5.5 Check Kubernetes resources for all microservices 
 ```
 helm list
 ```
 ```
 kubectl get all
 ```
-5.6 Check all services 
+5.6 Check all microservices 
 
-Navigate to http://localhost:8081 to check service1
+Navigate to http://localhost:8081 to check microservice1
 
-Navigate to http://localhost:8082 to check service2
+Navigate to http://localhost:8082 to check microservice2
 
-Navigate to http://localhost:8083 to check service3
+Navigate to http://localhost:8083 to check microservice3
 
-5.7 Upgrade chart for service3 using different values from command line 
+5.7 Upgrade chart for microservice3 using different values from command line 
 ```
-helm upgrade -f ServiceValues/service3-values.yaml service3 my-chart --set servicePort=9090
+helm upgrade -f Values/microservice3-values.yaml microservice3 my-chart --set servicePort=9090
 
 ```
-5.8 Check service3 
+5.8 Check microservice3 
 ```
-Navigate to http://localhost:8083 to check service3
+Navigate to http://localhost:8083 to check microservice3
 ```
 ```
-Navigate to http://localhost:9090 to check service3
+Navigate to http://localhost:9090 to check microservice3
 ```
 
-5.9 Rollback service3 
+5.9 Rollback microservice3 
 ```
-helm rollback service3 1
+helm rollback microservice3 1
 ```
-5.10 Check service3 
+5.10 Check microservice3 
 ```
-Navigate to http://localhost:8083 to check service3
+Navigate to http://localhost:8083 to check microservice3
 ```
 ```
-Navigate to http://localhost:9090 to check service3
+Navigate to http://localhost:9090 to check microservice3
 ```
